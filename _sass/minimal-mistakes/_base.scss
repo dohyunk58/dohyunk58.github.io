@@ -156,6 +156,10 @@ pre {
   font-family: $monospace;
 }
 
+code {
+  color : #EB5757;
+}
+
 pre {
   overflow-x: auto; /* add scrollbars to wide code blocks*/
 }
