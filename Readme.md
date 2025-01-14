@@ -1,6 +1,3 @@
----
-title: "Readme.md"
----
 # dohyunk58.github.io
 
 Github Page with Jekyll  
@@ -11,9 +8,9 @@ Github Page with Jekyll
 
 ### 개선점
 
-- [x]  글목록 제목 아래에 글을 설명하는 칸으로 쓰기(글의 첫 줄 내용이 아니라)
-- [x] inline 코드 색상 변경
-- [ ]  우측 화면에 목차
+- [x]  글 보조 설명란 추가
+- [x]  inline 코드 색상 변경
+- [x]  우측 화면 목차 추가
 - [ ]  좌측 화면에 카테고리
 - [ ]  글 목록에서 이미지 보이기
 - [ ]  로고 추가하기
