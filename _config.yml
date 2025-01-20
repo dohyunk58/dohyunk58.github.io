@@ -330,3 +330,6 @@ defaults:
       toc_label: " 목차"  # TOC 제목 추가
       toc_icon: "fas fa-list"    # TOC 아이콘 추가
       toc_levels: 1..3
+
+# 코드 복사
+enable_copy_code_button: true
