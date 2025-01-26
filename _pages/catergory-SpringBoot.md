@@ -1,11 +1,11 @@
 ---
-title: "Java"
+title: "SpringBoot"
 layout: category
-permalink: categories/java
+permalink: categories/springboot
 ---
 
 
-{% assign posts = site.categories['Java']%}
+{% assign posts = site.categories['SpringBoot']%}
 {% for post in posts %}
 {% include archive-single.html type=page.entries_layout %}
 {% endfor %}
