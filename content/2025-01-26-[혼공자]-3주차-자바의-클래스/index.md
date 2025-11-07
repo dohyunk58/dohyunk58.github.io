@@ -6,7 +6,7 @@ date: '2025-01-26'
 author: 김도현
 categories : Java
 tags: java 혼공학습단
-
+slug: "hongongja-week3-review"
 ---
 
 3주차는 6장 하나만 공부하면 되는데, 그 양이 꽤나 크다. 또한, 주제가 클래스로 객체 지향언어의 대표인 자바의 핵심 내용이라고 할 수 있다.

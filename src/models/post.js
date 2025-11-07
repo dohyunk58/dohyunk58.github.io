@@ -1,7 +1,7 @@
 export default class Post {
   constructor(node) {
     const { id, html, excerpt, frontmatter, fields } = node;
-    const { slug } = fields;
+    const { slug = '' } = fields ?? {};
     const { emoji, categories, title, author, date } = frontmatter;
 
     this.id = id;

@@ -5,6 +5,7 @@ date: '2025-02-09'
 author: 김도현
 categories : Java
 tags: java 혼공학습단
+slug: "hongongja-week4-review"
 ---
 
 ![50%달성](http://hongong.hanbit.co.kr/wp-content/uploads/2025/02/%ED%98%BC%EA%B3%B5%ED%95%99%EC%8A%B5%EB%8B%A8-13%EA%B8%B0_3%EC%A3%BC%EC%B0%A8.png)

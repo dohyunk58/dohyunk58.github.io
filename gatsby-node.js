@@ -2,9 +2,28 @@ const { createFilePath } = require(`gatsby-source-filesystem`);
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions;
+
   if (node.internal.type === `MarkdownRemark`) {
-    const slug = createFilePath({ node, getNode, basePath: `content` });
-    createNodeField({ node, name: `slug`, value: slug });
+    let slug;
+
+    // 마크다운 헤더에 slug가 있는지 먼저 확인
+    if (node.frontmatter && node.frontmatter.slug) {
+      slug = node.frontmatter.slug;
+
+      if (!slug.startsWith('/')) {
+        slug = '/' + slug;
+      }
+      if (!slug.endsWith('/')) {
+        slug = slug + '/';
+      }
+    }
+
+    else {
+      slug = createFilePath({ node, getNode, basePath: `content` });
+    }
+    createNodeField({ 
+      node, name: `slug`, value: slug 
+    });
   }
 };
 

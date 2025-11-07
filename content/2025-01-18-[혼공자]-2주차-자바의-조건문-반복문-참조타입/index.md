@@ -5,6 +5,7 @@ date: '2025-01-18'
 author: 김도현
 categories : Java
 tags: java 혼공학습단
+slug: "hongongja-week2-review"
 ---
 
 # 자바의 기초를 배우다
