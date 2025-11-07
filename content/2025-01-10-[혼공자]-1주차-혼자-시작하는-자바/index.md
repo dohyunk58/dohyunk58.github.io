@@ -1,0 +1,308 @@
+--- 
+title : "[혼공학습단] 혼공자 1주차 회고 - 혼자 시작하는 자바"
+# excerpt : "한빛미디어 혼공 학습단 13기에 참여하게 되었습니다."
+date: '2025-01-10'
+author: 김도현
+categories : Java
+tags: java 혼공학습단
+slug: "hongongja-week1-review"
+---
+
+# 혼공학습단을 시작하다
+
+***
+
+이번 2024년 겨울 목표를 세우는 도중, 한빛미디어에서 진행하는 혼공학습단 13기 신청 홍보가 눈에 띄었다. 평소 대학 내 동아리에서만 스터디를 진행했는데, 이번에는 많은 사람들과 스터디를 진행하고 싶어 혼공학습단 13기에 지원했다.
+
+![image.png](https://ci3.googleusercontent.com/meips/ADKq_NbtIS1euV_GfDZrd_b0L8tTbtojzgm_E6-LZVx3nAEU6To-WD7IJrk8yD2CkVI6xaBfB-3LX5XTKeueRgHrCFhdR7vGfVQ-2JQnlSZxlKcSUpspqSXDpxegfZ-Q0iyx4tGw0nuusHJt2XbnglAdA5KJZjBY7Bgm1Lt-qwADecDPWCmwJiWJ=s0-d-e1-ft#https://hbedm.hanbit.co.kr/tm6/app/resources/images/imageupload/F5E2A09DB25012EBBA9240813A4849D61735538681886356)
+
+합격 이메일!! 
+
+도서는 이미 갖고 있어서 추가로 구매하지는 않았다. 
+
+![image.png](https://ci3.googleusercontent.com/meips/ADKq_NbiP99Cn3gNeKKK4t9ulDwY8tE0tIcpOFzHixaw6wI0DtD1btqaW2DjQFLZmH9dWp6A6op4UhJkYzqOOw9tHUGW3gegrd0v1ToM8ndBzq3gnulJZSsGP-NCxBlS-FYV7lhrg9DhfY6hcPOy0kbhtecS07TfTatV2jLpp9kKTmnDUNZB051o=s0-d-e1-ft#https://hbedm.hanbit.co.kr/tm6/app/resources/images/imageupload/F5E2A09DB25012EBBA9240813A4849D61735538793936545)
+
+(혼공족장님 모양 책갈피가 탐나긴 했다.)
+
+내가 지원한 학습단은 혼공자로 혼자 공부하는 자바 커리큘럼을 쭉 따라는 것이다.
+
+![image.png](image_1.png)
+
+커리큘럼은 위와 같은데, 각 주차에 맞는 진도를 학습한 뒤, 블로그 등에 숙제와 함께 공부했음을 인증해야 한다. (바로 지금 이 글처럼)
+
+1주차는 1-3장까지의 내용으로 각각 
+
+1. 자바 시작하기
+2. 변수와 타입
+3. 연산자
+
+를 배우는 단원이다.
+
+자바를 배우는 것은 이번이 처음이지만, 기존에 C언어와 파이썬 기초를 학습한터라 기초 내용은 빠르게 훑고 지나가며 `기존에 내가 배운 언어들과 차이점을 위주로` 노션에 기록하며 공부했다.
+
+![image.png](image_2.png)
+
+학교 공부를 할 때처럼 각 단원별로 정리했다.
+
+아래는 노션에 각 단원별로 정리한 내용이다.
+
+# 01 자바 시작하기
+
+***
+
+**자바의 특징**
+
+- 모든 OS에서 실행 가능
+- 객체 지향 프로그래밍
+- 메모리 자동 정리
+
+## 자바 프로그램 개발 과정
+
+**자바 프로그램 실행 순서**
+
+*자바 소스 파일 → javac 컴파일 → 바이트 코드 파일 → 기계어 번역 → 실행*
+
+- 자바 소스 파일 `Hello.java` 를 javac 명령어를 통해 컴파일 ⇒ 바이트 코드 파일 `Hello.class`
+- 바이트 코드 파일을 완전한 기계어로 만들기 위해 JVM(자바 가상 머신)이 java 명령어를 통해 기계어로 번역 후 실행
+
+**자바 가상 머신 JVM**
+
+- OS별로 JVM이 같은 자바 소스 파일을 컴파일 한 바이트 코드(.class)를 기계어로 번역해 실행할수 있도록 함
+- 윈도우, 리눅스에서 동일한 코드를 실행할 수 있는 이유
+
+## 자바 코드 기초
+
+**클래스**
+
+```java
+public class Hello {
+}
+```
+
+- `public class` : 클래스 선언부, 공개 클래스를 뜻함
+- `Hello` : 클래스명, 대소문자를 구별함, 소스 파일명과 동일해야함
+- `{ }` : 클래스 블록
+- 클래스 안에 `main()` 메소드 블록을 가지고 있어야 함
+
+**메소드**
+
+```java
+public static void main(String[] args) {
+	System.out.println("Hello, Java");
+}
+```
+
+- `public static void main(String[] args)` : 메소드 선언부
+- `main` : 메소드 이름
+    - java 명령어 실행 시 main을 가장 먼저 실행
+
+**주석**
+
+- `//` : 한 줄 주석
+- `/* ... */` : 범위 주석
+- `/** ... */` : 도큐먼트 주석
+
+**세미콜론**
+
+- 자바는 main 안 실행문 끝에 세미콜론을 붙임 ( C언어와 동일 )
+
+# 02 변수와 타입
+
+***
+
+## 변수
+
+- 메모리 주소에 붙이는 이름
+- 자바는 변수에 타입을 지정해 해당 타입의 값만을 저장할 수 있음
+- `변수타입 변수명;` 으로 선언
+    
+    ```java
+    int age;
+    int age1, age2; // 콤마로 한 번에 선언도 가능
+    ```
+    
+- 변수 규칙
+    - 시작글자 : 문자, $, _
+    - 대소문자 구분
+    - camelCase가 관례
+        - 시작은 소문자 단어 구분은 대문자로
+    - 예약어 사용 불가
+    - 문자 수 길이 제한 없음
+- 변수 사용 범위 **:** 블록 내에서 선안되고 사용됨 ⇒ C언어와 동일
+
+## 변수 타입
+
+| 데이터 타입 | 자료형 |
+| ----------- | ----------------------- |
+| 정수 타입   | byte, char, short, int, long |
+| 실수 타입   | float, double |
+| 논리 타입   | boolean |
+
+
+![image.png](image_3.png)
+
+- 정수 타입
+    - char 타입
+        - 작은따옴표 `''` 로 감싼 것
+    - string 타입
+        - 큰따옴표 `""` 로 감싼 것
+- 실수 타입
+    - float
+        - 선언 시 f나 F를 붙이지 않으면 컴파일 에러 발생
+            - `float abc = 123.456F;`
+
+## 타입 변환
+
+**자동 타입 변환**
+
+- 값의 범위가 작은 것에서 큰 것으로 변함
+    - ex. short → int
+- 연산 중 자동 형 변환
+    - 정수형 연산 시, int 형으로 자동 변환되어 연산 수행
+    - 실수형 연산 시, double형이 피연산자로 존재하면 다른 피연산자도 double형으로 형변환
+    - 문자열 + 숫자 연산시, 숫자를 문자열로 자동 형변환
+        
+        ```java
+        String str = "3" + 7; // 결과는 "3" + "7"과 같은 "37"이다
+        ```
+        
+
+**강제 타입 변환**
+
+- 캐스팅 연산자 `(연산자)` 사용
+    
+    ```java
+    int intValue = 10;
+    double doubleValue = (double) intValue; // 10.0 저장
+    ```
+    
+
+**문자열 강제 타입 변환**
+
+- (int)str 처럼 캐스팅 연산자를 사용할 수 없다
+- 대신 Integer.parseInt();를 사용해야 한다
+
+| 기본 타입 | 변환 메서드 | 예시 |
+| --- | --- | --- |
+| int | `Integer.parseInt(str)` | `int num = Integer.parseInt("123");` |
+| long | `Long.parseLong(str)` | `long num = Long.parseLong("123456789");` |
+| float | `Float.parseFloat(str)` | `float num = Float.parseFloat("12.34");` |
+| double | `Double.parseDouble(str)` | `double num = Double.parseDouble("12.34");` |
+| byte | `Byte.parseByte(str)` | `byte num = Byte.parseByte("127");` |
+| short | `Short.parseShort(str)` | `short num = Short.parseShort("100");` |
+
+## 시스템 입출력
+
+### 출력
+
+`System.out.println("출력 내용");`
+
+- println() : 출력 후 개행
+- print() : 출력만
+- printf(”형식문자열”, 값1, 값2, … ) : 형식문자열대로 내용 출력
+    - `printf("나이 : %d", 25);` : 나이 : 25 로 출력됨
+
+**형식 문자열**
+
+`% [argument_index$] [flags] [width] [.precision] conversion`
+
+- `[argument_index$]` : 값의 순선
+- `[flags]` : -, 0
+    - -: 왼쪽 자리부터 채운다, 남은 자리는 공백
+    - 0: 남은 자리를 0으로 채운다
+- `[width]` : 전체 자릿수
+- `[.precision]` : 소수 자릿수
+- `conversion` : 변환 문자
+- 예 `System.out.printf("이름: %2$s. 나이: %1$d", 25, "java");` → 이름: java 나이: 25
+
+### 입력
+
+- `System.in.read();`
+    - 표준 입력에서 하나의 바이트(ASCII 코드 값)를 읽어들입니다. 따라서 실제로 읽은 값은 문자(char)가 아니라 정수(int)입니다. 이를 문자로 변환하려면 형 변환을 사용해야 합니다.
+- `Scanner scanner = new Scanner();`
+`String inputData = scanner.nextLine();`
+    - Scanner 객체를 선언한 뒤 한 줄을 입력받을 수 있음
+
+# 03 연산자
+
+***
+
+**연산자 종류**
+
+![image.png](image_4.png)
+
+- 부호 연산자는 int 타입을 반환
+- `instanceof` : 객체가 특정 클래스 또는 서브클래스의 인스턴스인지 확인하는 데 사용, 
+주로 타입을 확인하거나 다운캐스팅 전에 객체의 타입을 검증하는 데 사용 (교재에 없어 GPT의 답변을 참조했다)
+    
+    ```java
+    object instanceof ClassName
+    ```
+    
+    - **object**: 검사하려는 객체
+    - **ClassName**: 비교하려는 클래스나 인터페이스
+    - `instanceof`의 결과는 boolean 값
+- `&&` , `||` : 앞의 피연산자가 각각 false, true라면 뒤의 피연산자를 평가하지 않고 false, true 결과 반환
+- `&` , `|` : 앞의 피연산자의 값과 관계 없이 뒤의 피연산자를 평가함
+
+**연산자 우선순위**
+
+![image.png](image_5.png)
+
+# 숙제01 JDK 설치 인증
+
+***
+
+Springboot3 실습을 위해 설치했던 IntelliJ와 JDK21이 있어 그대로 활용했다. IDE의 경우 혼공자에서 설명하는 이클립스를 권장하였으나 이미 설치된 IDE가 있어 그대로 사용하기로 했다.
+
+![image.png](image_6.png)
+
+설치된 자바의 버전은 cmd에서 `java -version` 으로 확인했다.
+
+![image.png](image_7.png)
+
+# 숙제02 코드 작성
+
+***
+
+p.110 (02-3) 확인 문제 9번에 들어갈 코드를 2가지 이상 작성해보기
+<!-- {: .notice} -->
+
+var1부터 var4까지 + 연산을 수행해서 int 타입 result 변수에 9가 저장되도록 **( )** 에 들어갈 코드를 작성하시오
+
+ 
+
+```java
+long var1 = 2L;
+float var2 = 1.0f;
+double var3 = 2.5;
+String var4 = "3.9";
+int result = **( )**;
+```
+
+1. `(int)(var1+var2+var3+(int)Double.parseDouble(var4));`
+    - 2 + 1.0 + 2.5 + 3을 정수 변환하여 9가 된다
+2. `(int)(var1 + var2 + var3 + Math.floor(Double.parseDouble(var4)));`
+    - 1번 코드에서 `(int)Double.parseDouble` 을 `Math.floor(Double.parseDouble` 로 변경해 실수를 정수로 내림했다.
+
+**실행 코드**
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        long var1 = 2L;
+        float var2 = 1.8f;
+        double var3 = 2.5;
+        String var4 = "3.9";
+        int result1 = (int)(var1+var2+var3+(int)Double.parseDouble(var4));
+        int result2 = (int)(var1 + var2 + var3 + Math.floor(Double.parseDouble(var4)));
+        System.out.println("result1 = "+result1);
+        System.out.println("result2 = "+result2);
+    }
+}
+```
+
+![image.png](image_8.png)
+
+```toc
+```

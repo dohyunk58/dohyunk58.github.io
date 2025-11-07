@@ -1,0 +1,546 @@
+--- 
+title : "[혼공학습단] 혼공자 2주차 회고 - 자바의 조건문 반복문 참조타입"
+# excerpt : "자바 if, switch, for, while문에 대해 학습했습니다."
+date: '2025-01-18'
+author: 김도현
+categories : Java
+tags: java 혼공학습단
+---
+
+# 자바의 기초를 배우다
+
+***
+
+2주차 혼공자는 4-5장으로, 조건문과 반복문, 참조타입을 공부해야 한다.
+
+작심삼일을 의식해서인지 혼공족장님께서는 정신이 번쩍 들게 만들어주시는 간식을 준비해주셨다.
+
+![image](http://hongong.hanbit.co.kr/wp-content/uploads/2025/01/1%EC%A3%BC%EC%B0%A8-%EC%9A%B0%EC%88%98-%ED%98%BC%EA%B3%B5%EC%A1%B1.png)
+
+![Image](https://github.com/user-attachments/assets/652e143a-a703-493a-bb8d-551573f6edc5)
+
+내가 우수혼공족이라니!! 감사합니다 혼공족장님…! 덕분에 작심삼일을 바로 벗어났습니다 ㅎㅎ 깃허브 블로그에도 계속 기능을 추가하고 있으니 기대해주세요!
+
+![Image](https://github.com/user-attachments/assets/88af2571-2fad-44e5-86ba-228b555b7e9b)
+
+그것과는 별개로 잔디는 4일만에 끊겨버렸다… 오늘부터 다시 심겠습니다!
+
+아래는 4-5장 정리 내용과 기본 과제, 추가 숙제이다.
+
+# 01 조건문
+
+***
+
+조건문의 경우 C언어와 그다지 다른 점은 없어보였다. 많이 쓰이는 문법 방식이기도 하고, 그렇기 때문에 몸에 익은 문법이기도 하다.
+
+## if
+
+```java
+if (조건식) {
+	실행문;
+} else if (조건식) {
+	실행문;
+} else {
+	실행문;
+}
+```
+
+## switch
+
+```java
+switch(변수) {
+	case 값1:
+		실행문;
+		break;
+	default:
+		실행문;
+}
+```
+
+# 02 반복문
+
+***
+
+## for
+
+```java
+for(초기화식;조건식;증감식) {
+	실행문;
+}
+```
+
+### 하나씩 하나씩 값을 모두 꺼내는 for
+
+```java
+for(int i : scores){
+	...
+}
+```
+
+## while
+
+```java
+while(조건식) {
+	실행문;
+}
+```
+
+## do-while
+
+```java
+do {
+	실행문;
+while(조건식);
+```
+
+### break
+
+- 반복문을 중지함
+- `break Label;`  
+    
+    ```java
+    Label: for (...){
+        for (...){
+            break Label;
+        }
+    }
+    ```
+    
+    - Label이 붙은 for문을 종료시킬 수 있음
+
+### continue
+
+- 실행문을 종료하고 반복문으로 다시 이동함
+    - for는 증감식, while/do-while의 조건식
+
+
+# 03 참조 타입과 참조 변수
+
+***
+
+데이터 타입
+
+- 기본 타입
+    - 이전까지 배운 정수형, 실수형들의 타입
+- 참조 타입
+    - **주소를 참조**하는 타입
+    - 배열, 열거, 클래스, 인터페이스
+    - 힙(heap) 영역을 참조함
+
+## 메모리 영역
+
+1. 메소드
+    - JVM 시작 시 생성
+    - 코드에서 사용하는 클래스 별로 정적 필드(static field)와 상수, 메소드 코드, 생성자(constructor) 코드로 분류해 저장
+2. 힙
+    - 객체, 배열이 생성되는 영역(다른 객체의 필드에서 참조함)
+    - 자바는 참조하는 변수, 필드가 없는 클래스를 Garbage collector로 제거함
+
+1. JVM 스택
+    - 메소드 호출마다 프레임 추가(push), 메소드 종료마다 해당 프레임 제거(pop)
+    - 프레임 내부에는 로컬 변수 스택이 있음
+        - 기본 타입 변수(int 등)와 참조 타입 변수(배열 등)이 push/pop
+
+**참조 타입 변수 `==`, `!=` 연산자**
+
+- 동일한 객체를 참조하는지를 반환함
+
+## null과 NullPointerException
+
+**null**
+
+- 참조 타입 변수가 힙 영역 객체를 참조하지 않는다는 뜻으로 갖는 값
+- null값을 갖는지 ==, != null 로 확인
+
+**예외 Exception**
+
+- 프로그램 실행 도중 발생하는 오류
+- 사용자의 잘못된 입력, 잘못된 코드 등으로 발생
+- 참조 변수 사용 시 NullPointerException이 가장 많이 발생함
+
+**NullPointerException**
+
+- 참조 타입 변수를 잘못 사용하면 발생
+- null값을 가지는 참조 변수는 객체의 데이터를 사용할 수 없음
+    
+    ```java
+    int[] intArray = null; // null을 가지는 참조 변수 (배열 변수)
+    intArray[0] = 10; // null 상태의 객체 데이터에 접근하려고 함 -> NullPointerException
+    ```
+    
+    - intArray가 참조하는 배열 객체가 없으므로 예외 발생
+    
+    ```java
+    String str = null;
+    System.out.println("총 문자수: "+str.length()); // str이 참조하는 String 객체가 없음
+    ```
+    
+    - str이 null 값을 가질 때 `length()` 메소드를 사용한 결과 NullPointerException 발생
+
+## String
+
+- String 객체를 생성하고 String 변수가 이를 참조함
+    - 일반적으로는 String 번수에 저장한다고 표현함
+- **`new String`** : 새로운 String 객체를 생성
+    - 같은 문자열 리터럴을 참조하면 두 변수를 비교하면 true 반환
+        
+        ```java
+        String str1 = "A";
+        String str2 = "A";
+        ```
+        
+    - new String으로 String 객체를 새로 생성하면 false 반환
+        
+        ```java
+        String str1 = new String("A");
+        String str2 = new String("A");
+        ```
+        
+- `equals()` : String객체가 아닌 문자열이 동일한지 비교함
+    
+    ```java
+    boolean result = str1.equals(str2); // str2가 str1과 같은지 비교
+    ```
+    
+
+# 04 배열
+
+***
+
+- **같은 타입 데이터**를 연속된 공간에 나열하고 **인덱스**를 부여함(0부터)
+- 생성된 배열의 길이를 변경할 수 없음
+- 배열도 객체이므로 힙 영역에 생성되고, 배열 변수는 힙 영역의 배열 객체를 참조함
+
+## **배열 선언**
+
+- 배열 **변수를 선언**하는것
+1. `타입[] 변수;`
+    
+    ```java
+    int[] intArray;
+    double[] doubleArray;
+    String[] strArray;
+    ```
+    
+2. `타입 변수[];`
+    
+    ```java
+    int intArray[];
+    double doubleArray[];
+    String strArray[];
+    ```
+    
+- null값을 가질 수 있음
+
+## **배열 생성**
+
+- 배열 **객체를 생성**하는 것
+
+**값 목록으로 배열 생성**
+
+`타입[] 변수 = {값들};`
+
+- ex. `String[] names = {"A","B","C"};`
+- **배열 변수 선언 시에만 가능**
+    
+    ```java
+    String[] names;
+    names={"A","B","C"}; // 컴파일 에러
+    ```
+    
+- `new`를 이용해 새 객체를 선언해주면 변수 선언 이후에도 값 목록으로 배열 객체 생성 가능
+    
+    ```java
+    String[] names = null;
+    names = new String[] {"A","B","C"};
+    ```
+    
+- 메소드의 매개변수가 배열일 때에도 `new` 로 배열 객체를 생성하는 방법으로 사용해야함
+    
+    ```java
+    int add(int[] scores) {...}
+    int result = add(new int[] {1,2,3}); // add({1,2,3})은 컴파일 에러 발생int add(int[] scores) {...}
+    int result = add(new int[] {1,2,3}); // add({1,2,3})은 컴파일 에러 발생
+    ```
+    
+
+**new 연산자로 배열 생성**
+
+- 값은 없지만 나중에 저장할 배열을 미리 만들기
+
+```java
+타입[] 변수 = new 타입[길이];
+
+타입[] 변수 = null;
+변수 = new 타입[길이];
+```
+
+- ex. `int[] intArray = new int[5];`  : 길이가 5인 int형 배열 생성
+- 기본값으로 초기화
+    - int형의 경우 기본값 0으로 모두 초기화됨
+    - String형은 null로 초기화됨
+
+**배열의 길이**
+
+- `.length` 로 확인(배열의 읽기 전용 필드=내부 데이터)
+    - ex. `intArray.length`
+- for문의 조건식에서 배열의 길이만큼 반복하게 만들 수 있음
+
+**명령 라인 입력**
+
+main() 메소드의 매개변수 String[] args의 역할
+
+- `public static void main(String[] args) {...}`
+    - JVM은 길이가 0인 String 배열을 생성하고 main 호풀 시 매개값으로 전달함
+    - run configuration에서 argument를 수정하여 args 배열 값에 접근할 수 있음
+
+## 다차원 배열
+
+**2차원 배열**
+
+- 행렬과 동일함
+- 2x3 배열을 선언하는 코드
+`int[][] scores = new int[2][3];`
+    - scores는 각 행을 가리키는 배열을 가리킴
+        - 따라서 scores.length는 2, scores[0].length는 3을 가진다
+
+- **일차 배열이 연결된 구조이므로 계단식 구조를 가질 수 있음**
+    
+    ```java
+    int[][] scores = new int[2][];
+    scores[0] = new int[2]; // 0행은 2열을
+    scores[1] = new int[3]; // 1행은 3열을 가짐
+    ```
+    
+    - 이런 방식으로 선언된 다차원 배열을 인덱스로 접근하는 경우 주의해야함
+
+**객체를 참조하는 배열**
+
+String은 클래스로, String[] 배열은 각 항목에 문자열이 아닌 String 객체의 주소를 가지고 있음
+
+⇒ String[] 배열은 String을 참조함
+
+```java
+String[] strArray = {"A","B","C"};
+```
+
+## 배열 복사
+
+**for문 사용 복사**
+
+```java
+public static void main(String[] args) {
+	int[] oldIntArray = {1,2,3};
+	int[] newIntArray = new int[5];
+	
+	for(int i = 0; i < oldIntArray.length; i++){
+		newIntArray[i] = oldIntArray[i];
+	}
+	
+	for(int i = 0; i < newIntArray.length; i++){
+		System.out.print(newIntArray[i]+", ");
+	}
+}
+```
+
+**System.arraycopy() 메소드 배열 복사**
+
+`System.arraycopy(Object src, int srcPos, Object dest, int destPos, int length);` 
+
+- src : 원본 배열
+- srcPos : 원본 배열 복사 시작 인덱스
+- dest : 새 배열
+- destPos : 새 배열에 붙여넣을 시작 인덱스
+- length : 복사할 개수
+
+ex. 원본 배열 arr1, 새 배열 arr2일때, arr1의 모든 항목을 arr2에 복사하기
+
+`System.arraycopy(arr1, 0, arr2, 0, arr1.length);` 
+
+- 복사되지 않은 항목은 초기값 그대로(0, 0.0, ‘0’, null 등)
+
+**향상된 for문**
+
+- 배열, 컬렉션을 쉽게 처리하기 위함
+- 루프 카운터 변수, 증감식을 사용하지 않음
+- 배열, 컬렉션 항목 개수만큼 반복하고 for문을 종료함
+
+```java
+for(타입변수 : 배열) {
+	실행문;
+}
+```
+
+- 값을 꺼내 저장할 변수를 선언한 후 콜론과 배열을 작성
+
+```java
+int[] scores={1,2,3};
+int sum = 0;
+for(int score: scores) {
+	sum += score;
+}
+```  
+
+
+
+# 05 열거 타입
+
+***
+
+- enumeration type, 한정된 값(**열거 상수**)만을 가지는 타입
+- Java의 `enum` 키워드를 사용하여 정의되며, 각 열거 상수는 고정된 이름으로 특정 값을 나타냄
+
+- 열거 타입 이름으로 소스파일을 생성해야함
+    
+    ```java
+    // Week.java
+    public enum Week {MONDAY,TUESDAY,WEDNESDAY,THURSDAY,FRIDAY,SATURDAY,SUNDAY}
+    ```
+    
+- 열거 타입 변수 선언 후 사용
+    
+    ```java
+    Week today; // today라는 열거 타입 Week의 변수
+    today = Week.SUNDAY; // Week의 열거 상수 SUNDAY를 저장함
+    // 열거 타입도 참조 타입이므로 null 값을 가질 수 있음
+    ```
+    
+- 열거 타입도 참조 타입이므로 열거 상수는 객체이다. (String[] 배열의 String 객체처럼)
+    - MONDAY부터 SUNDAY까지는 힙 영역에 각각 Week 객체로 생성됨
+    - 따라서 Week.MONDAY 상수를 참조하는 today1, today2를 선언하고 비교하면 true가 나온다
+
+예제 코드) 오늘의 요일
+
+```java
+// import java.util.Calendar;
+public static void main(String[] args){
+	Week today = null;
+	Calendar cal = Calendar.getInstance();
+	int week = cal.get(Calendar.DAY_OF_WEEK); // 일(1) ~ 토(7) 까지 숫자로 반환
+	
+	switch(week){
+		case 1: // 일요일
+			today=Week.SUNDAY; break;
+		case 2:
+			today=Week.MONDAY; break;
+		...
+		case 7:
+			today=Week.SATURDAY; break;
+	}
+	System.out.println("오늘 요알: "+today);
+}
+```
+
+
+
+# 숙제01 switch문 손코딩
+
+164페이지 switch문 직접 해보는 손코딩
+<!-- {: .notice} -->
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        int num = (int) (Math.random() * 6) + 1;
+
+        switch (num) {
+            case 1:
+                System.out.println("1번이 나왔습니다.");
+                break;
+            case 2:
+                System.out.println("2번이 나왔습니다.");
+                break;
+            case 3:
+                System.out.println("3번이 나왔습니다.");
+                break;
+            case 4:
+                System.out.println("4번이 나왔습니다.");
+                break;
+            case 5:
+                System.out.println("5번이 나왔습니다.");
+                break;
+            default:
+                System.out.println("6번이 나왔습니다.");
+                break;
+        }
+    }
+}
+```
+
+![Image](https://github.com/user-attachments/assets/21437e6a-0d71-4e8d-8db5-cac017fea573)
+
+랜덤하게 숫자를 얻으므로 실행할때마다 결과가 달라진다.
+
+![Image](https://github.com/user-attachments/assets/2c9289b8-c915-4813-9982-a5a7f983ec14)
+
+# 숙제02 학생 점수 프로그램 작성 및 분석
+
+223페이지 05-2 문제 6번 풀고 정리하기
+<!-- {: .notice} -->
+
+```java
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        boolean run = true;
+        int studentNum = 0;
+        int[] scores = null;
+        Scanner scanner = new Scanner(System.in);
+
+        while (run) {
+            System.out.println("1.학생수 2.점수입력 3.점수리스트 4.분석 5.종료");
+            System.out.print("선택> ");
+
+            int selectNo = Integer.parseInt(scanner.nextLine());
+
+            if(selectNo == 1){
+                System.out.print("학생수> ");
+                studentNum = Integer.parseInt(scanner.nextLine());
+                scores = new int[studentNum]; // 배열 생성
+            }
+            else if(selectNo == 2){
+                for(int i = 0; i < studentNum; i++){
+                    System.out.printf("scores[%d]> ",i);
+                    scores[i] = Integer.parseInt(scanner.nextLine());
+                }
+            }
+            else if(selectNo == 3){
+                for(int i : scores){
+                    System.out.printf("scores[%d]> ",i);
+                    System.out.println(i);
+                }
+            }
+            else if(selectNo == 4){
+                int sum = 0, max = 0;
+                for(int i : scores){
+                    sum += i;
+                    if(max < i) max = i;
+                }
+                System.out.println("최고 점수: "+max);
+                System.out.println("평균 점수: "+sum/(double)studentNum);
+            }
+            else if(selectNo == 5){
+                run = false;
+            }
+        }
+
+        System.out.println("프로그램 종료");
+    }
+}
+```
+
+
+결과는 다음과 같다.  
+
+![Image](https://github.com/user-attachments/assets/f2da8708-aceb-46ec-b178-9ae50736868d)
+
+
+- 1번을 입력받으면 학생수를 입력받는다. 그리고 입력받은 학생수를 배열의 크기로 잡고 배열 객체를 할당한다.
+- 2번을 입력받으면 for문으로 학생수만큼 반복하며 사용자로부터 정수를 입력받는다. 입력받은 값은 배열에 저장한다.
+- 3번을 입력받으면 for문으로 학생수만큼 반복하며 배열의 값을 출력한다.
+- 4번을 입력받으면 배열의 값을 전부 순회하며 sum에 값을 더하고 max와 비교하여 큰 수를 저장한 뒤 max를 출력하고 sum에 double형으로 형 변환한 학생수를 나눈 평균을 출력한다.
+- 5번을 입력받으면 run에 false를 저장하여 while문에서  탈출하도록 한다.
+
+```toc
+```
